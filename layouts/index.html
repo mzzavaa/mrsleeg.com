@@ -1,0 +1,40 @@
+{{ define "main" }}
+<section class="hero wrap">
+    <figure class="hoop">
+        <img src="{{ "images/mrs-lee-g.jpg" | relURL }}" alt="Mrs Lee G, drawn with a pink thread spool, a pencil and hearts" width="360" height="360">
+    </figure>
+    <div class="hero-text">
+        <p class="hand">hi, I'm</p>
+        <h1>Mrs Lee G</h1>
+        <p class="lede">{{ .Params.lede }}</p>
+        <p class="hero-actions">
+            <a class="btn btn-pink" href="{{ .Site.Params.youtube }}">{{ partial "icon.html" "youtube" }} Watch on YouTube</a>
+            <a class="btn btn-outline" href="{{ .Site.Params.instagram }}">{{ partial "icon.html" "instagram" }} @mrs_lee_g</a>
+        </p>
+    </div>
+</section>
+
+<section class="wrap block">
+    <h2 class="stitched">What's on my table</h2>
+    <div class="pieces">
+        {{ range $i, $p := .Params.table }}
+        <a class="piece piece-{{ $p.color }}" href="{{ $p.link | relURL }}">
+            <span class="piece-label">{{ partial "icon.html" "scissors" }} piece {{ index (slice "A" "B" "C" "D" "E" "F") $i }}</span>
+            <img src="{{ $p.image | relURL }}" alt="" loading="lazy">
+            <span class="piece-title">{{ $p.title }}</span>
+            <span class="piece-text">{{ $p.text }}</span>
+        </a>
+        {{ end }}
+    </div>
+    <p class="more"><a class="btn btn-outline" href="{{ "makes/" | relURL }}">All makes {{ partial "icon.html" "arrow-right" }}</a></p>
+</section>
+
+<section class="wrap block machine">
+    <figure class="snapshot">
+        <img src="{{ "images/pink-sewing-machine.jpg" | relURL }}" alt="A hot pink sewing machine on a table full of sewing supplies" loading="lazy">
+        <figcaption class="hand">the pink one</figcaption>
+    </figure>
+    <div class="prose">{{ .Content }}</div>
+</section>
+
+{{ end }}

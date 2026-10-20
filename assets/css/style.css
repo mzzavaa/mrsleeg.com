@@ -1,0 +1,208 @@
+/* Mrs Lee G: a sewing table, not a website template.
+   Cream fabric, hot pink thread, a wooden embroidery hoop, pattern pieces with cutting lines,
+   a measuring tape along the top. Colours come from her avatar: pink thread, sunflower yellow, leaf teal. */
+
+@font-face { font-family: "Fraunces"; src: url("../fonts/fraunces-latin-600-normal.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Fraunces"; src: url("../fonts/fraunces-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Fraunces"; src: url("../fonts/fraunces-latin-600-italic.woff2") format("woff2"); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("../fonts/nunito-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("../fonts/nunito-latin-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("../fonts/nunito-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Caveat"; src: url("../fonts/caveat-latin-700-normal.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+:root {
+  --cream: #fff6ee;
+  --paper: #fffdf9;
+  --ink: #3a1f2b;
+  --ink-2: #6b5260;
+  --line: #f0d6df;
+  --pink: #e0457b;
+  --pink-deep: #b8295e;
+  --pink-soft: #fbd3e0;
+  --pink-wash: #fde9f0;
+  --yellow: #f6b931;
+  --yellow-soft: #fdeec4;
+  --teal: #1f9d8b;
+  --teal-soft: #cdeee8;
+  --wood: #d9a467;
+  --wood-dark: #b07a3e;
+  --shadow: 0 2px 4px rgba(90, 30, 50, 0.08), 0 10px 26px rgba(90, 30, 50, 0.10);
+
+  --display: "Fraunces", Georgia, serif;
+  --body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hand: "Caveat", "Segoe Print", cursive;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 400 1.08rem/1.7 var(--body);
+  /* fabric: a soft gingham in pink */
+  background-color: var(--cream);
+  background-image:
+    linear-gradient(90deg, rgba(224, 69, 123, 0.045) 50%, transparent 50%),
+    linear-gradient(rgba(224, 69, 123, 0.045) 50%, transparent 50%);
+  background-size: 28px 28px;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--pink-deep); text-underline-offset: 0.2em; }
+a:hover { color: var(--pink); }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.12; margin: 0; letter-spacing: -0.01em; }
+.hand { font-family: var(--hand); font-weight: 700; }
+.icon { width: 1.05em; height: 1.05em; vertical-align: -0.16em; flex: none; }
+.wrap { width: 100%; max-width: 68rem; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 700px) { .wrap { padding: 0 28px; } }
+.skip-link { position: absolute; left: -999px; }
+.skip-link:focus { left: 8px; top: 8px; background: var(--ink); color: #fff; padding: 8px 12px; z-index: 10; }
+
+/* Measuring tape along the top */
+.tape {
+  height: 16px;
+  background-color: var(--yellow);
+  background-image:
+    repeating-linear-gradient(90deg, var(--ink) 0 1.5px, transparent 1.5px 40px),
+    repeating-linear-gradient(90deg, rgba(58, 31, 43, 0.55) 0 1px, transparent 1px 8px);
+  background-size: 100% 10px, 100% 5px;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid rgba(58, 31, 43, 0.25);
+}
+
+/* Header */
+.site-header { background: var(--paper); border-bottom: 2px dashed var(--pink-soft); }
+.header-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.4rem 1.5rem; padding-top: 0.8rem; padding-bottom: 0.8rem; }
+.wordmark { display: inline-flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--ink); font-family: var(--display); font-style: italic; font-weight: 600; font-size: 1.6rem; }
+.wordmark:hover { color: var(--pink-deep); }
+.balls { width: 2.6rem; height: auto; overflow: visible; }
+.balls .arc { stroke: var(--pink-soft); stroke-width: 2; stroke-dasharray: 3 4; }
+.nav { display: flex; gap: 0.2rem 1.3rem; flex-wrap: wrap; }
+.nav a { color: var(--ink-2); text-decoration: none; font-weight: 700; padding: 0.25rem 0; border-bottom: 3px solid transparent; }
+.nav a:hover { color: var(--pink-deep); }
+.nav a[aria-current="page"] { color: var(--pink-deep); border-bottom: 3px dotted var(--pink); }
+@media (max-width: 560px) {
+  .wordmark { font-size: 1.4rem; }
+  .nav { width: 100%; justify-content: space-between; border-top: 1px dashed var(--pink-soft); padding-top: 0.4rem; }
+}
+
+/* Hero: the avatar in an embroidery hoop */
+.hero { display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; padding-top: 3rem; padding-bottom: 1rem; }
+.hoop {
+  position: relative; margin: 0; width: 300px; height: 300px; border-radius: 50%;
+  padding: 10px; background: var(--wood);
+  box-shadow: inset 0 0 0 4px var(--wood-dark), 0 0 0 6px var(--paper), var(--shadow);
+}
+.hoop::before { /* the brass clasp at the top of the hoop */
+  content: ""; position: absolute; top: -18px; left: 50%; width: 34px; height: 26px; margin-left: -17px;
+  background: linear-gradient(#e7c66b, #b8913a); border-radius: 6px; box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+.hoop img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: 50% 18%; border: 3px solid var(--wood-dark); }
+.hero-text .hand { font-size: 2rem; color: var(--pink); margin: 0; transform: rotate(-3deg); transform-origin: left; }
+.hero-text h1 { font-size: clamp(3rem, 9vw, 5.4rem); color: var(--ink); }
+.lede { font-size: 1.2rem; color: var(--ink-2); max-width: 36rem; margin: 0.9rem 0 0; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 1.6rem 0 0; }
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 1.5rem; padding-top: 2.4rem; }
+  .hoop { width: 230px; height: 230px; }
+  .hero-text .hand { transform-origin: center; }
+  .lede { margin-left: auto; margin-right: auto; }
+  .hero-actions { justify-content: center; }
+}
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.25rem; border-radius: 999px; font-weight: 700; text-decoration: none; transition: transform 0.15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn-pink { background: var(--pink); color: #fff; box-shadow: 0 4px 0 var(--pink-deep); }
+.btn-pink:hover { color: #fff; }
+.btn-outline { background: var(--paper); color: var(--pink-deep); border: 2px dashed var(--pink); }
+
+/* Sections with stitched headings */
+.block { padding-top: 4rem; }
+.stitched { display: inline-block; font-size: clamp(1.8rem, 4vw, 2.4rem); padding-bottom: 0.35rem; margin-bottom: 1.6rem; background-image: linear-gradient(90deg, var(--pink) 60%, transparent 60%); background-size: 14px 3px; background-repeat: repeat-x; background-position: 0 100%; }
+.more { text-align: center; margin-top: 2rem; }
+
+/* Pattern pieces: cards with a dashed cutting line and a scissors mark */
+.pieces { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.6rem; }
+.piece {
+  position: relative; display: flex; flex-direction: column; gap: 0.35rem; text-decoration: none; color: var(--ink);
+  background: var(--paper); padding: 1.6rem 1.1rem 1.3rem; border-radius: 6px; box-shadow: var(--shadow);
+  outline: 2px dashed var(--pink); outline-offset: -9px; transition: transform 0.15s ease;
+}
+.piece:hover { transform: translateY(-3px) rotate(-0.5deg); color: var(--ink); }
+.piece-yellow { outline-color: var(--yellow); }
+.piece-teal { outline-color: var(--teal); }
+.piece-label { position: absolute; top: -0.85rem; left: 1rem; background: var(--paper); padding: 0 0.45rem; font-family: var(--hand); font-weight: 700; font-size: 1.2rem; color: var(--pink-deep); display: inline-flex; gap: 0.3rem; align-items: center; }
+.piece-yellow .piece-label { color: #a36c00; }
+.piece-teal .piece-label { color: #137364; }
+.piece img { aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; margin-bottom: 0.4rem; }
+.piece-title { font-family: var(--display); font-weight: 700; font-size: 1.45rem; }
+.piece-text { color: var(--ink-2); font-size: 1rem; }
+
+/* The pink machine: a taped snapshot next to the story */
+.machine { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 2.5rem; align-items: center; }
+@media (max-width: 760px) { .machine { grid-template-columns: 1fr; } }
+.snapshot { position: relative; margin: 0; background: #fff; padding: 10px 10px 2.4rem; box-shadow: var(--shadow); transform: rotate(-1.5deg); }
+.snapshot::before { content: ""; position: absolute; top: -12px; left: 50%; width: 110px; height: 26px; margin-left: -55px; background: rgba(31, 157, 139, 0.45); transform: rotate(3deg); }
+.snapshot figcaption { position: absolute; bottom: 0.3rem; left: 1rem; font-size: 1.45rem; color: var(--pink-deep); }
+.snapshot.lead { transform: rotate(-0.8deg); margin: 2rem 0 0; }
+.snapshot.lead img { width: 100%; max-height: 34rem; object-fit: cover; }
+
+/* Make cards */
+.makes { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1.8rem; }
+.make { background: var(--paper); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); display: flex; flex-direction: column; }
+.make-image img { aspect-ratio: 4 / 3; width: 100%; object-fit: cover; }
+.make-body { padding: 0.9rem 1.1rem 1.2rem; border-top: 3px dotted var(--pink-soft); }
+.make .make-kind { margin: 0; color: var(--pink); font-size: 1.4rem; line-height: 1; }
+.make h3 { font-size: 1.35rem; margin-top: 0.3rem; }
+.make h3 a { color: var(--ink); text-decoration: none; }
+.make h3 a:hover { color: var(--pink-deep); text-decoration: underline; }
+.make p { margin: 0.4rem 0 0; color: var(--ink-2); font-size: 0.98rem; }
+
+/* Pages */
+.page-head { padding-top: 2.8rem; padding-bottom: 1.6rem; }
+.page-head h1 { font-size: clamp(2.3rem, 6vw, 3.4rem); }
+.kicker { margin: 0; font-size: 1.6rem; color: var(--pink); }
+.intro { margin-bottom: 2rem; }
+.sheet { max-width: 46rem; background: var(--paper); margin-top: 2.4rem; padding-bottom: 2.6rem; border-radius: 6px; box-shadow: var(--shadow); outline: 2px dashed var(--pink-soft); outline-offset: -12px; }
+@media (min-width: 700px) { .sheet { padding-left: 3rem; padding-right: 3rem; } }
+.prose { max-width: 40rem; }
+.prose > * + * { margin-top: 1.1em; }
+.prose p, .prose ul { margin-bottom: 0; }
+.prose h2 { font-size: 1.7rem; margin-top: 2em; color: var(--pink-deep); }
+.prose ul { padding-left: 1.2rem; }
+.prose li::marker { color: var(--pink); }
+.prose li + li { margin-top: 0.4em; }
+.prose img { border-radius: 4px; box-shadow: var(--shadow); margin: 1.6rem 0; }
+.prose strong { font-weight: 700; }
+
+/* Link-in-bio page */
+.links-page { max-width: 32rem; text-align: center; padding-top: 2.6rem; }
+.hoop-small { width: 150px; height: 150px; padding: 7px; margin: 0 auto 1.2rem; }
+.hoop-small::before { width: 24px; height: 18px; margin-left: -12px; top: -13px; }
+.links-page h1 { font-size: 2.6rem; }
+.link-list { list-style: none; padding: 0; margin: 1.8rem 0 0; display: grid; gap: 0.9rem; }
+.link-item { display: flex; flex-direction: column; padding: 0.95rem 1.2rem; border-radius: 14px; text-decoration: none; color: var(--ink); background: var(--paper); box-shadow: var(--shadow); border: 2px dashed var(--pink); transition: transform 0.15s ease; }
+.link-item:hover { transform: translateY(-2px) rotate(-0.4deg); color: var(--ink); }
+.link-item span { font-weight: 700; font-size: 1.1rem; }
+.link-item small { color: var(--ink-2); font-size: 0.92rem; }
+.link-yellow { border-color: var(--yellow); }
+.link-teal { border-color: var(--teal); }
+
+/* Footer: a loose pink thread */
+.site-footer { margin-top: 5rem; background: var(--paper); padding-bottom: 2rem; }
+.thread { display: block; width: 100%; height: 26px; }
+.thread path { fill: none; stroke: var(--pink); stroke-width: 2.5; stroke-dasharray: 10 7; }
+.footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; padding-top: 1.4rem; }
+.footer-name { display: flex; align-items: center; gap: 0.5rem; font-family: var(--display); font-style: italic; font-weight: 600; font-size: 1.4rem; margin: 0; }
+.footer-note { color: var(--ink-2); max-width: 26rem; margin: 0.4rem 0 0; }
+.footer-links { display: grid; gap: 0.35rem; }
+.footer-links a { display: inline-flex; gap: 0.45rem; align-items: center; color: var(--ink); text-decoration: none; font-weight: 700; }
+.footer-links a:hover { color: var(--pink-deep); }
+.footer-links .icon { color: var(--pink); }
+.copyright { color: var(--ink-2); font-size: 0.85rem; margin-top: 1.6rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .piece, .link-item { transition: none; }
+  .btn:hover, .piece:hover, .link-item:hover { transform: none; }
+}

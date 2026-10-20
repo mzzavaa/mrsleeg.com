@@ -1,0 +1,10 @@
+{{ define "main" }}
+<header class="page-head wrap">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+</header>
+<div class="wrap">
+    {{ with .Content }}<div class="prose intro">{{ . }}</div>{{ end }}
+    <div class="makes">{{ range .Pages }}{{ partial "make-card.html" . }}{{ end }}</div>
+</div>
+{{ end }}

@@ -1,0 +1,17 @@
+<footer class="site-footer">
+    <svg class="thread" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 C 100 0, 200 40, 300 20 S 500 0, 600 20 S 800 40, 900 20 S 1100 0, 1200 20" /></svg>
+    <div class="wrap footer-row">
+        <div>
+            <p class="footer-name">{{ partial "balls.html" "footer-balls" }} Mrs Lee G</p>
+            <p class="footer-note">Juggling, sewing, drawing and videos. Three things in the air, never the important one on the floor.</p>
+        </div>
+        <nav class="footer-links" aria-label="Elsewhere">
+            <a href="{{ .Site.Params.youtube }}">{{ partial "icon.html" "youtube" }} YouTube</a>
+            <a href="{{ .Site.Params.instagram }}">{{ partial "icon.html" "instagram" }} Instagram</a>
+            <a href="https://thejugglingcompany.com">{{ partial "icon.html" "arrow-right" }} The Juggling Company</a>
+            <a href="https://lindamohamed.com">{{ partial "icon.html" "arrow-right" }} Talks and workshops</a>
+            <a href="{{ "links/" | relURL }}">{{ partial "icon.html" "arrow-right" }} All links</a>
+        </nav>
+    </div>
+    <p class="wrap copyright">&copy; {{ now.Format "2006" }} Mrs Lee G</p>
+</footer>

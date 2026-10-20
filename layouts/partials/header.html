@@ -1,0 +1,12 @@
+<div class="tape" aria-hidden="true"></div>
+<header class="site-header">
+    <div class="wrap header-row">
+        <a class="wordmark" href="{{ "/" | relURL }}">{{ partial "balls.html" "wordmark-balls" }}<span>Mrs Lee G</span></a>
+        <nav class="nav" aria-label="Main">
+            {{ range .Site.Menus.main }}
+            {{ $current := or ($.IsMenuCurrent "main" .) (hasPrefix $.RelPermalink .URL) }}
+            <a href="{{ .URL }}"{{ if $current }} aria-current="page"{{ end }}>{{ .Name }}</a>
+            {{ end }}
+        </nav>
+    </div>
+</header>

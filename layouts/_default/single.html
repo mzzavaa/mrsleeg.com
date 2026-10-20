@@ -1,0 +1,11 @@
+{{ define "main" }}
+<article class="sheet wrap">
+    <header class="page-head">
+        {{ with .Params.kind }}<p class="hand kicker">{{ . }}</p>{{ end }}
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="lede">{{ . }}</p>{{ end }}
+    </header>
+    {{ with .Params.image }}<figure class="snapshot lead"><img src="{{ . | relURL }}" alt="{{ $.Params.imageAlt }}"></figure>{{ end }}
+    <div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}

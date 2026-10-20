@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="links-page wrap">
+    <figure class="hoop hoop-small"><img src="{{ "images/mrs-lee-g.jpg" | relURL }}" alt="Mrs Lee G" width="160" height="160"></figure>
+    <h1>Mrs Lee G</h1>
+    <p class="lede">{{ .Description }}</p>
+    <ul class="link-list">
+        {{ range .Params.links }}
+        <li><a class="link-item link-{{ .color }}" href="{{ .url | relURL }}"><span>{{ .title }}</span><small>{{ .note }}</small></a></li>
+        {{ end }}
+    </ul>
+</section>
+{{ end }}

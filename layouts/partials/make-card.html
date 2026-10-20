@@ -1,0 +1,8 @@
+<article class="make">
+    <a class="make-image" href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">{{ with .Params.image }}<img src="{{ . | relURL }}" alt="" loading="lazy">{{ end }}</a>
+    <div class="make-body">
+        {{ with .Params.kind }}<p class="make-kind hand">{{ . }}</p>{{ end }}
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </div>
+</article>

@@ -1,0 +1,31 @@
+baseURL = "https://mrsleeg.com/"
+locale = "en-US"
+title = "Mrs Lee G"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Mrs Lee G juggles, sews on a hot pink sewing machine, draws, and makes videos about tech with three balls in the air."
+  instagram = "https://www.instagram.com/mrs_lee_g/"
+  youtube = "https://www.youtube.com/@mrs_lee_g"
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[menus]
+  [[menus.main]]
+    name = "Makes"
+    pageRef = "/makes"
+    weight = 1
+  [[menus.main]]
+    name = "Juggling"
+    pageRef = "/juggling"
+    weight = 2
+  [[menus.main]]
+    name = "Videos"
+    pageRef = "/videos"
+    weight = 3
+  [[menus.main]]
+    name = "About"
+    pageRef = "/about"
+    weight = 4
